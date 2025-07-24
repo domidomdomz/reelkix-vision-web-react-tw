@@ -1,12 +1,16 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    './index.html',
-    './src/**/*.{ts,tsx}'
-  ],
+module.exports = {
+  darkMode: 'class',
+  content: ['./index.html','./src/**/*.{ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          // adjust to your red-dot color if needed
+          DEFAULT: '#E50C2C',
+        },
+      },
+    },
   },
   plugins: [],
 }
-
