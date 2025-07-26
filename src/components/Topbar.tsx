@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import { ThemeToggle } from './ThemeToggle'
+import logo from '../assets/logo.png'
 
 interface TopbarProps {
   onMenuClick: () => void
@@ -20,7 +21,7 @@ export const Topbar: FC<TopbarProps> = ({ onMenuClick }) => {
 
       {/* Logo can go here on mobile too */}
       <div className="flex items-center space-x-2">
-        <img src="/src/assets/logo.png" alt="Logo" className="w-8 h-8" />
+        <img src={logo} alt="Logo" className="w-8 h-8" />
         <span className="font-semibold text-lg">reelkix vision</span>
       </div>
 
