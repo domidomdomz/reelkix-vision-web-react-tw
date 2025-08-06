@@ -1,6 +1,6 @@
 import { Shoe } from "../../domain/entities/Shoe";
 import { uploadAndAnalyze } from "../../infrastructure/api/shoeApi";
-import { RecognitionResult } from "../domain/services/RecognitionResult";
+import { RecognitionResult } from "../../domain/services/RecognitionResult";
 
 export const RecogniseShoe = async (
     file: File
