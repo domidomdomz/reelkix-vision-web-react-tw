@@ -10,7 +10,7 @@ export class Shoe {
     readonly colorway: Colorway;
     readonly sku: SKU;
     readonly confidence: number;
-    readonly text: string;
+    readonly description: string;
 
     constructor(
         brand: Brand,
@@ -18,13 +18,13 @@ export class Shoe {
         colorway: Colorway,
         sku: SKU,
         confidence: number,
-        text: string
+        description: string
     ){
         this.brand = brand;
         this.model = model;
         this.colorway = colorway;
         this.sku = sku;
         this.confidence = confidence;
-        this.text = text;
+        this.description = description;
     }
 }

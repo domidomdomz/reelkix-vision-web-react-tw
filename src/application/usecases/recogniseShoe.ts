@@ -2,7 +2,7 @@ import { Shoe } from "../../domain/entities/Shoe";
 import { uploadAndAnalyze } from "../../infrastructure/api/shoeApi";
 import { RecognitionResult } from "../../domain/services/RecognitionResult";
 
-export const RecogniseShoe = async (
+export const recogniseShoe = async (
     file: File
 ): Promise<Shoe> => {
     const { analysis } = await uploadAndAnalyze(file);
