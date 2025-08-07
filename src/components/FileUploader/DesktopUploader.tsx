@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import type { ChangeEvent, FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useRecogniseShoe } from '../../hooks/useRecogniseShoe'
 import { Skeleton } from '../Skeleton'
 
 export const DesktopUploader: FC = () => {
   const [fileName, setFileName] = useState<string | null>(null);
-  const  { mutate, data, status, isError, error } = useRecogniseShoe();
+  const navigate = useNavigate();
+  const  { mutate, status, isError, error } = useRecogniseShoe();
 
   // Derive a loading flag from status
   const isLoading = status === 'pending';
@@ -15,7 +17,11 @@ export const DesktopUploader: FC = () => {
     if (!file) return;
 
     setFileName(file.name);
-    mutate(file);
+    mutate(file, {
+      onSuccess: (response) => {
+        navigate('/results', { state: response });
+      },
+    });
   }
 
   return (
@@ -58,20 +64,6 @@ export const DesktopUploader: FC = () => {
 
       {isError && (
         <p className="mt-4 text-red-600">Error: {error?.message}</p>
-      )}
-
-      {data && (
-        <div className="mt-6 p-4 border rounded-lg bg-white dark:bg-gray-700">
-          <h3 className="text-lg font-semibold">Recognized Shoe</h3>
-          <p>Brand: {data.brand.value}</p>
-          <p>Model: {data.model.value}</p>
-          <p>Colorway: {data.colorway.value}</p>
-          <p>SKU: {data.sku.value}</p>
-          <p>Confidence: {(data.confidence * 100).toFixed(1)}%</p>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            {data.description}
-          </p>
-        </div>
       )}
     </div>
   )
