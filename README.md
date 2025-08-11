@@ -1,4 +1,6 @@
-# React + TypeScript + Vite
+# Reelkix Vision UI (React + TypeScript + Vite)
+
+Mobile-friendly web app of Reelkix Vision, a simple app that lets users take photos or upload images of their sneakers and the app will analyse and recognise the Brand, Model and Colorway of the shoes.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
